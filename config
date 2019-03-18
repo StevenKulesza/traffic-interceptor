@@ -1,0 +1,8 @@
+module.exports = {
+    dev: {
+        targetUrl: 'http://localhost:3000'
+    },
+    prod: {
+        targetUrl: 'https://verizonwireless.tt.omtrdc.net/m2/verizonwireless/ubox/raw'
+    }
+}
