@@ -4,6 +4,8 @@ const url = require('url');
 const config = require('../config');
 const utils = require('../utils');
 
+const parametersController = require('../controllers/parameters.controller')
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Interceptor' });
@@ -12,6 +14,7 @@ router.get('/', function(req, res, next) {
 router.get('/image', async (req, res, next) => {
   let queryParams = '';
   let parsedQueryParams = '';
+  let paramModel = {};
   let imageResponse = ''
   const parsedUrl = url.parse(req.url);
 
@@ -24,8 +27,15 @@ router.get('/image', async (req, res, next) => {
         .replace(/=/g, '":"') 
       + '"}')
       
-      console.log('PARSED PARAMS: ', parsedQueryParams)
-      console.log('URL: ', config.prod.targetUrl + '?' + queryParams)
+      paramModel = {
+        name: parsedQueryParams.at_property,
+        parameters: parsedQueryParams
+      };
+
+      parametersController.create_parameter_set(paramModel)
+
+      // console.log('PARSED PARAMS: ', parsedQueryParams)
+      // console.log('URL: ', config.prod.targetUrl + '?' + queryParams)
 
       // make get call to target
       imageResponse = await utils.getBase64(config.prod.targetUrl + '?' + queryParams);

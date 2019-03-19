@@ -1,8 +1,14 @@
 module.exports = {
     dev: {
-        targetUrl: 'http://localhost:3000'
+        targetUrl: 'http://localhost:3000',
+        database: {
+            url: 'mongodb://localhost:27017/interceptor'
+        }
     },
     prod: {
-        targetUrl: 'https://verizonwireless.tt.omtrdc.net/m2/verizonwireless/ubox/raw'
+        targetUrl: 'https://verizonwireless.tt.omtrdc.net/m2/verizonwireless/ubox/raw',
+        database: {
+            url: 'mongodb://localhost:27017/interceptor'
+        }
     }
 }
