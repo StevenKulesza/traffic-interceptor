@@ -6,8 +6,12 @@ const ParameterSchema = new mongoose.Schema({
         type: String, 
         // unique: true
     },
-    parameters: {
+    incoming: {
         type: Object
+    },
+    outgoing: {
+        type: Object,
+        required: false
     }
 });
 

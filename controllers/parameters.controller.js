@@ -4,7 +4,6 @@ const Parameters = require('../models/params.model');
 
 
 exports.create_parameter_set = (data) => {
-    console.log(data)
     return new Promise(function (resolve, reject) {
         Parameters.find({
                 name: data.name
@@ -14,18 +13,17 @@ exports.create_parameter_set = (data) => {
                 const newParameters = new Parameters({
                     _id: new mongoose.Types.ObjectId(),
                     name: data.name,
-                    parameters: data
+                    incoming: data.incoming,
+                    outgoing: data.outgoing
                 });
                 //save the user to the database
                 newParameters
                     .save()
                     .then(result => {
-                        console.log('Parameter set created');
-                        console.log(newParameters);
                         resolve(newParameters);
                     })
-                    .catch(reject('Could not save parameters.'));
+                    .catch(error => reject(error));
             })
-            .catch(reject('Could not find parameters.'));
+            .catch(error => reject(error));
     })
 }
