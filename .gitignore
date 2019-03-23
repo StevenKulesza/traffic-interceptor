@@ -80,7 +80,7 @@ typings/
 .dynamodb/
 
 # Azure Functions artifacts
-bin
+# bin
 obj
 appsettings.json
 local.settings.json
@@ -88,3 +88,6 @@ local.settings.json
 # TypeScript output
 dist
 out
+
+# non public data
+config.js

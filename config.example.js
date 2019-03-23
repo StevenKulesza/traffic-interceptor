@@ -1,3 +1,4 @@
+// example config
 module.exports = {
     dev: {
         targetUrl: 'http://localhost:3000',
@@ -6,7 +7,7 @@ module.exports = {
         }
     },
     prod: {
-        targetUrl: 'https://verizonwireless.tt.omtrdc.net/m2/verizonwireless/ubox/raw',
+        targetUrl: 'your_url_here',
         database: {
             url: 'mongodb://localhost:27017/interceptor'
         }
