@@ -6,4 +6,5 @@ exports.getBase64 = function (url) {
             responseType: 'arraybuffer'
         })
         .then(response => response)
+        .catch(err => console.log(err))
 }
